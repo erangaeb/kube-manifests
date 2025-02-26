@@ -5,4 +5,4 @@ resources:
 - service.yaml
 images:
 - name: public.ecr.aws/nginx/nginx
-  newTag: 1.27-alpine3.21-slim
+  newTag: 1.27-alpine3.21
