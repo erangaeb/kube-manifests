@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kargo-demo
+  namespace: kargo-demo-test
 spec:
   replicas: 1
   selector:
@@ -13,13 +14,7 @@ spec:
         app: kargo-demo
     spec:
       containers:
-      - name: nginx 
+      - name: nginx
         image: public.ecr.aws/nginx/nginx:latest
-        volumeMounts:
-        - name: content
-          mountPath: /usr/share/nginx/html
-          readOnly: true
-      volumes:
-      - name: content
-        configMap:
-          name: kargo-demo-content
+        ports:
+        - containerPort: 80
